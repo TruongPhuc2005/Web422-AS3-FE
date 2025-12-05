@@ -8,7 +8,8 @@
 *
 * Name: Duong Truong Phuc Nguyen Student ID: 176712230 Date: December 5th, 2025
 *
-* Vercel App (Deployed) Link: https://web-ass3-lemon.vercel.app/
+* Vercel App (Deployed) Link: https://web422-as-3-fe.vercel.app/
+* This is my back-end link: https://web422-as-3-be.vercel.app/
 *
 ********************************************************************************/
 

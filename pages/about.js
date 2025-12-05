@@ -5,7 +5,7 @@ export default function About({ book }) {
   return (
     <>
       <PageHeader text="About the Developer - Justin Nguyen"  />
-      <p>This is my second assignment in WEB422</p>
+      <p>This is my third assignment in WEB422</p>
       <BookDetails book={book} workId="OL453657W" showFavouriteBtn={false} />
     </>
   );
