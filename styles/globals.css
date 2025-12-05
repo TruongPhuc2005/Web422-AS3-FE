@@ -1,0 +1,4 @@
+/* if you want to have your table rows cause the cursor to change to a "pointer" on hover */
+.table-hover tbody tr:hover{ cursor: pointer; }
+
+
