@@ -4,16 +4,29 @@ import { Table, Pagination } from 'react-bootstrap';
 import { useRouter } from 'next/router';
 import PageHeader from '@/components/PageHeader';
 
-
 export default function Books() {
   const router = useRouter();
   const [page, setPage] = useState(1);
 
-  const queryString = new URLSearchParams(router.query).toString();
-  const fetchUrl = `https://openlibrary.org/search.json?${queryString}&page=${page}&limit=10`;
+  // --- START OF PROFESSOR'S CHANGES ---
+  let qParts = [];
+  
+  // Convert router query object into an array of "key:value" strings
+  if (router.query) {
+    Object.entries(router.query).forEach(([key, value]) => {
+      qParts.push(`${key}:${value}`);
+    });
+  }
+
+  // Join them with " AND " to create the specific search string format
+  const queryString = qParts.join(' AND ');
+  
+  // Construct the new URL using 'q='
+  const fetchUrl = `https://openlibrary.org/search.json?q=${queryString}&page=${page}&limit=10`;
+  // --- END OF PROFESSOR'S CHANGES ---
 
   const { data, error } = useSWR(
-    router.query && Object.keys(router.query).length > 0 ? fetchUrl : null
+    qParts.length > 0 ? fetchUrl : null
   );
 
   const subtext = Object.keys(router.query).length > 0
